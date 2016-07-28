@@ -21,14 +21,36 @@ var productArray = [
   new Product('Wine Glass', 'img/wine_glass.jpg')
 ]
 
+var foundArray = []
+
 function displayImage () {
-  for (var i = 0; i < 3; i++) {
-    var index = Math.floor(Math.random() * productArray.length)
-    console.log(index)
-    var voteImage = new Image()
-    voteImage.src = productArray[index].productImage
-    document.body.appendChild(voteImage)
+  for (imageNumber = 1; imageNumber < 4; imageNumber++) {
+    do {
+      var index = Math.floor(Math.random() * productArray.length)
+      foundArray.push(index)
+      found = false
+      for (i = 0; i < foundArray.length; i++) {
+        if (foundArray[i] == index) {
+          found = true
+          break
+        } else {
+          var voteImage = new Image()
+          voteImage.src = productArray[index].productImage
+          voteImage.id = index
+          document.body.appendChild(voteImage).addEventListener('click', recordVote, false)
+        }
+      }
+    } while (foundArray.indexOf[index] >= 0)
+    console.log(foundArray)
   }
 }
 
 displayImage(productArray);
+
+function recordVote(e) {
+  var target = e.target
+  var index = event.target.id
+  productArray[index].productCount++
+  displayImage(productArray)
+  console.log(productArray[index].productName + productArray[index].productCount)
+}
