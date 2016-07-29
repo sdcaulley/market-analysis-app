@@ -48,7 +48,6 @@ function shuffleRandomArray () {
     randomArray[indexRandomArray] = randomArray[randomIndexNumber]
     randomArray[randomIndexNumber] = temp
   }
-  console.log(randomArray)
 }
 
 // function for getting image groupings
@@ -56,10 +55,15 @@ function createImageArray () {
   var imageGroup = []
     for (i = count; i < count+numPics; i++) {
       if (i < randomArray.length) {
-        console.log('i: ' + i)
       var voteImage = new Image()
       voteImage.src = productArray[randomArray[i]].productImage
       voteImage.id = randomArray[i]
+      imageGroup.push(voteImage)
+    } else if (i == randomArray.length - 1) {
+      var voteImage = new Image()
+      voteImage.src = productArray[randomArray[i]].productImage
+      voteImage.id = randomArray[i]
+      voteImage.addEventListener('click', showResults, false)
       imageGroup.push(voteImage)
     } else {
       break
@@ -71,7 +75,6 @@ return imageGroup
 
 // function to display voting group
 function displayImage (imageGroup) {
-  console.log(imageGroup);
   var position = document.getElementById('image-container')
   for (var i = 0; i < imageGroup.length; i++) {
     position.appendChild(imageGroup[i]).addEventListener('click', recordVote, false)
@@ -91,6 +94,31 @@ function recordVote(e) {
 }
 
 // function for displaying results
+function showResults () {
+  var newTable = document.createElement('table')
+  // create header row, cells and content
+  var header = newTable.createTHead()
+  var rowHead = header.insertRow(0)
+  var cellHead1 = rowHead.insertCell(0)
+  var cellHead2 = rowHead.insertCell(1)
+  var headText1 = document.createTextNode('Product')
+  var headText2 = document.createTextNode('Votes')
+  cellHead1.appendChild(headText1)
+  cellHead2.appendChild(headText2)
+  // create row and cells for product name and votes
+  for (var i = 0; i < productArray.length; i++) {
+    if (productArray[i].productCount > 0) {
+      var row = newTable.insertRow
+      newTable.appendChild(row)
+      var cell1 = row.insertCell(0)
+      var cell2 = row.insertCell(1)
+      var cellText1 = document.createTextNode(productCount.productName[i])
+      var cellText2 = document.createTextNode(productArray.productCount[i])
+      cell1.appendChild(cellText1)
+      cell2.appendChild(cellText2)
+      }
+    }
+}
 
 // function to rule them all
 function pullItTogether () {
