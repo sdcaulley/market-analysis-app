@@ -34,10 +34,12 @@ var productArray = [
 
 // array for storing shuffled products
 var randomArray = []
+var displayArray = []
 
-function fillRandomArray () {
+function fillArray () {
   for (i = 0; i < productArray.length; i++) {
     randomArray.push(i)
+    displayArray.push(i)
   }
 }
 
@@ -154,6 +156,56 @@ function showResults(myArray) {
     tablePosition.appendChild(newTable)
 }
 
+function displayGraph () {
+    var chart = new CanvasJS.Chart("putChartHere",
+    {
+      title:{
+        text: "Olympic Medals of all Times (till 2012 Olympics)"
+      },
+      data: [
+      {
+        type: "bar",
+        dataPoints: [
+        { y: 198, label: "Italy"},
+        { y: 201, label: "China"},
+        { y: 202, label: "France"},
+        { y: 236, label: "Great Britain"},
+        { y: 395, label: "Soviet Union"},
+        { y: 957, label: "USA"}
+        ]
+      },
+      {
+        type: "bar",
+        dataPoints: [
+        { y: 166, label: "Italy"},
+        { y: 144, label: "China"},
+        { y: 223, label: "France"},
+        { y: 272, label: "Great Britain"},
+        { y: 319, label: "Soviet Union"},
+        { y: 759, label: "USA"}
+        ]
+      },
+      {
+        type: "bar",
+        dataPoints: [
+        { y: 185, label: "Italy"},
+        { y: 128, label: "China"},
+        { y: 246, label: "France"},
+        { y: 272, label: "Great Britain"},
+        { y: 296, label: "Soviet Union"},
+        { y: 666, label: "USA"}
+        ]
+      }
+      ]
+    });
+
+chart.render();
+}
+
+
+
+
+
 // function to sort results
 function sortResults() {
   var sortArray = productArray.slice(0)
@@ -164,7 +216,7 @@ function sortResults() {
 
 // function to rule them all
 function pullItTogether () {
-  fillRandomArray()
+  fillArray()
   shuffleRandomArray()
   displayImage(createImageArray())
 }
