@@ -8,6 +8,8 @@ function Product (productName, productImage, altText) {
   this.altText = altText
   this.productCount = 0
   this.productView = 0
+  this.y = 0; //
+  this.label = productName
   this.calculatePercent = function () {
     var percent = Math.floor((this.productCount/this.productView) * 100)
     return percent
@@ -64,7 +66,8 @@ function createImageArray () {
   var imageGroup = []
   var reshuffle = false
   if (voteLog == 15) {
-    showResults(sortResults())
+  //  showResults(sortResults())
+    displayGraph ()
     return imageGroup
   }
     for (i = count; i < count+numPics; i++) {
@@ -106,6 +109,10 @@ function recordVote(e) {
   var index = event.target.id
   console.log(index)
   productArray[index].productCount++
+  productArray[index].y++
+
+
+
   voteLog++
   console.log(productArray[index].percentageVoteView);
   var imagePosition = document.getElementById('image-container')
@@ -156,51 +163,7 @@ function showResults(myArray) {
     tablePosition.appendChild(newTable)
 }
 
-function displayGraph () {
-    var chart = new CanvasJS.Chart("putChartHere",
-    {
-      title:{
-        text: "Olympic Medals of all Times (till 2012 Olympics)"
-      },
-      data: [
-      {
-        type: "bar",
-        dataPoints: [
-        { y: 198, label: "Italy"},
-        { y: 201, label: "China"},
-        { y: 202, label: "France"},
-        { y: 236, label: "Great Britain"},
-        { y: 395, label: "Soviet Union"},
-        { y: 957, label: "USA"}
-        ]
-      },
-      {
-        type: "bar",
-        dataPoints: [
-        { y: 166, label: "Italy"},
-        { y: 144, label: "China"},
-        { y: 223, label: "France"},
-        { y: 272, label: "Great Britain"},
-        { y: 319, label: "Soviet Union"},
-        { y: 759, label: "USA"}
-        ]
-      },
-      {
-        type: "bar",
-        dataPoints: [
-        { y: 185, label: "Italy"},
-        { y: 128, label: "China"},
-        { y: 246, label: "France"},
-        { y: 272, label: "Great Britain"},
-        { y: 296, label: "Soviet Union"},
-        { y: 666, label: "USA"}
-        ]
-      }
-      ]
-    });
 
-chart.render();
-}
 
 
 
