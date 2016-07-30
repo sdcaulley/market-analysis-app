@@ -8,6 +8,8 @@ function Product (productName, productImage, altText) {
   this.altText = altText
   this.productCount = 0
   this.productView = 0
+  this.y = 0; //
+  this.label = productName
   this.calculatePercent = function () {
     var percent = Math.floor((this.productCount/this.productView) * 100)
     return percent
@@ -34,10 +36,12 @@ var productArray = [
 
 // array for storing shuffled products
 var randomArray = []
+var displayArray = []
 
-function fillRandomArray () {
+function fillArray () {
   for (i = 0; i < productArray.length; i++) {
     randomArray.push(i)
+    displayArray.push(i)
   }
 }
 
@@ -62,7 +66,8 @@ function createImageArray () {
   var imageGroup = []
   var reshuffle = false
   if (voteLog == 15) {
-    showResults(sortResults())
+  //  showResults(sortResults())
+    displayGraph ()
     return imageGroup
   }
     for (i = count; i < count+numPics; i++) {
@@ -104,6 +109,10 @@ function recordVote(e) {
   var index = event.target.id
   console.log(index)
   productArray[index].productCount++
+  productArray[index].y++
+
+
+
   voteLog++
   console.log(productArray[index].percentageVoteView);
   var imagePosition = document.getElementById('image-container')
@@ -154,6 +163,12 @@ function showResults(myArray) {
     tablePosition.appendChild(newTable)
 }
 
+
+
+
+
+
+
 // function to sort results
 function sortResults() {
   var sortArray = productArray.slice(0)
@@ -164,7 +179,7 @@ function sortResults() {
 
 // function to rule them all
 function pullItTogether () {
-  fillRandomArray()
+  fillArray()
   shuffleRandomArray()
   displayImage(createImageArray())
 }
