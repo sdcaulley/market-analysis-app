@@ -8,6 +8,10 @@ function Product (productName, productImage, altText) {
   this.altText = altText
   this.productCount = 0
   this.productView = 0
+  this.calculatePercent = function () {
+    var percent = Math.floor((this.productCount/this.productView) * 100)
+    return percent
+  }
 }
 
 // Array of products
@@ -58,8 +62,9 @@ function createImageArray () {
   var imageGroup = []
   var reshuffle = false
   if (voteLog == 15) {
-    showResults(productArray)
-  } else {
+    showResults(sortResults())
+    return imageGroup
+  }
     for (i = count; i < count+numPics; i++) {
       if (i >= randomArray.length) {
         reshuffle = true
@@ -83,7 +88,6 @@ function createImageArray () {
       count = 0
     }
     return imageGroup
-  }
 }
 
 // function to display voting group
@@ -101,6 +105,7 @@ function recordVote(e) {
   console.log(index)
   productArray[index].productCount++
   voteLog++
+  console.log(productArray[index].percentageVoteView);
   var imagePosition = document.getElementById('image-container')
   imagePosition.innerHTML = ''
   displayImage(createImageArray())
@@ -108,28 +113,39 @@ function recordVote(e) {
 }
 
 // function for displaying results
-function showResults () {
+function showResults(myArray) {
     var newTable = document.createElement('table')
     // create header row, cells and content
     var header = newTable.createTHead()
     var rowHead = header.insertRow(0)
     var cellHead1 = rowHead.insertCell(0)
     var cellHead2 = rowHead.insertCell(1)
+    var cellHead3 = rowHead.insertCell(2)
+    var cellHead4 = rowHead.insertCell(3)
     var headText1 = document.createTextNode('Product')
     var headText2 = document.createTextNode('Votes')
+    var headText3 = document.createTextNode('Views')
+    var headText4 = document.createTextNode('Votes/Views')
     cellHead1.appendChild(headText1)
     cellHead2.appendChild(headText2)
+    cellHead3.appendChild(headText3)
+    cellHead4.appendChild(headText4)
     // create row and cells for product name and votes
-    for (var i = 0; i < productArray.length; i++) {
+    for (var i = 0; i < myArray.length; i++) {
       var row = newTable.insertRow(0)
       newTable.appendChild(row)
       var cell1 = row.insertCell(0)
       var cell2 = row.insertCell(1)
-      console.log('Table index: ' + i);
-      var cellText1 = document.createTextNode(productArray[i].productName)
-      var cellText2 = document.createTextNode(productArray[i].productCount)
+      var cell3 = row.insertCell(2)
+      var cell4 = row.insertCell(3)
+      var cellText1 = document.createTextNode(myArray[i].productName)
+      var cellText2 = document.createTextNode(myArray[i].productCount)
+      var cellText3 = document.createTextNode(myArray[i].productView)
+      var cellText4 = document.createTextNode(myArray[i].calculatePercent() + ' %')
       cell1.appendChild(cellText1)
       cell2.appendChild(cellText2)
+      cell3.appendChild(cellText3)
+      cell4.appendChild(cellText4)
     }
     var tablePosition = document.getElementById('resultsTable')
 
@@ -137,9 +153,14 @@ function showResults () {
 }
 
 // function to sort results
-function sortResults () {
-  var sortArray = 
+function sortResults() {
+  var sortArray = productArray.slice(0)
+  console.log(sortArray[0].productName)
+  sortArray.sort(function(a, b){return b.productCount - a.productCount})
+  return sortArray
 }
+
+// function
 
 // function to rule them all
 function pullItTogether () {
