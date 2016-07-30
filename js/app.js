@@ -162,8 +162,6 @@ function sortResults() {
   return sortArray
 }
 
-// function
-
 // function to rule them all
 function pullItTogether () {
   fillRandomArray()

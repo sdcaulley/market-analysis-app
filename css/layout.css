@@ -1,0 +1,33 @@
+#image-container {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+img {
+  height: 350px;
+  width: 350px;
+}
+
+#resultsTable {
+  display: flex;
+  justify-content: center;
+}
+
+td {
+   padding: 5px;
+   text-align: center;
+ }
+
+ h1 {
+   text-align: center;
+ }
+
+ h2 {
+   text-align: center;
+ }
+
+ h3 {
+   text-align: center;
+ }

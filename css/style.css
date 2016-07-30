@@ -3,34 +3,6 @@ body {
   font-size: 1em;
 }
 
-h1 {
-  text-align: center;
-}
-
-h2 {
-  text-align: center;
-}
-
-h3 {
-  text-align: center;
-}
-
-#image-container {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-around;
-}
-
-img {
-  height: 350px;
-  width: 350px;
-}
-
-#resultsTable {
-
-}
-
 thead td {
   font-weight: bold;
 }
@@ -38,8 +10,3 @@ thead td {
 tr:nth-of-type(even) {
   background-color: #ccccff;
 }
-
-td {
-   padding: 5px;
-   text-align: center;
- }
