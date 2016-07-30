@@ -77,7 +77,7 @@ function createImageArray () {
       console.log('Product View: ' + productArray[randomArray[i%randomArray.length]].productView);
       imageGroup.push(voteImage)
       var voteMessage = document.getElementById('place')
-      var messageForUser = '<p>You have completed ' + voteLog + ' out of 15 votes.</p>'
+      var messageForUser = '<p><h3>You have completed ' + voteLog + ' out of 15 votes.</h3></p>'
       voteMessage.innerHTML = messageForUser
     }
     count +=3
@@ -148,7 +148,9 @@ function showResults(myArray) {
       cell4.appendChild(cellText4)
     }
     var tablePosition = document.getElementById('resultsTable')
-
+    var messagePosition = document.getElementById('resultsMessage')
+    var messageForResults = '<p><h3>Thank you for participating in our survey.  Here are your results.</h3></p>'
+    messagePosition.innerHTML = messageForResults
     tablePosition.appendChild(newTable)
 }
 
