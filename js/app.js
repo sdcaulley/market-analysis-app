@@ -1,47 +1,14 @@
 var count = 0
 var voteLog = 0
 
-// object constructor for products
-function Product (productName, productImage, altText) {
-  this.productName = productName
-  this.productImage = productImage
-  this.altText = altText
-  this.productCount = 0
-  this.productView = 0
-  this.y = 0; //
-  this.label = productName
-  this.calculatePercent = function () {
-    var percent = Math.floor((this.productCount/this.productView) * 100)
-    return percent
-  }
-}
-
-// Array of products
-var productArray = [
-  new Product('Robot Bag', 'img/bag.jpg', 'Rolling carry-on suitcase that looks like R2D2 from Star Wars.'),
-  new Product('Banana Slicer', 'img/banana.jpg', 'Outline of a banana in yellow plastic with stips of plastic for cutting the banana spaced along the body.'),
-  new Product('Rubber Boots', 'img/boots.jpg', 'Yellow rubber rain boots, with the toes and soles missing.'),
-  new Product('Red Chair', 'img/chair.jpg', 'Red 4-legged, straight back chair with exagerated convex seat.'),
-  new Product('Cthulhu', 'img/cthulhu.jpg', "Action figure of H.P. Lovecraft's character Cthulhu, holding a helpless victim."),
-  new Product('Dragon Meat', 'img/dragon.jpg', 'Ninetee ounce can of dragon meat.'),
-  new Product('Cutlery Pens', 'img/pen.jpg', 'Ball point pens caps that look like plastic silverware.'),
-  new Product('Pizza Scissors', 'img/scissors.jpg', 'Scissors with a plastic stencil on the bottom blade that is shaped like a pizza slice and has the word PIZZA in it.'),
-  new Product('Shark Bag', 'img/shark.jpg', 'Sleeping bag that looks like a shark.'),
-  new Product('Dustmop Onesie', 'img/sweep.jpg', 'Infant onsie that has dustmop pieces sewen to forearms and legs.'),
-  new Product('Unicorn Meat', 'img/unicorn.jpg', 'Five and a half ounce can of unicorn meat.'),
-  new Product('Tentacle USB', 'img/usb.jpg', 'USB key that looks like the tentacle from a sea creature.'),
-  new Product('Watering Can', 'img/water_can.jpg', 'Blue watering can whose spout is turned back over the body of the can.'),
-  new Product('Wine Glass', 'img/wine_glass.jpg', 'Wine glass where opening is on one side of glass instead of across the top.')
-]
-
-// array for storing shuffled products
+// arrays for product manipulation
 var randomArray = []
-var displayArray = []
+var displayVotesArray = []
+var displayViewArray = []
 
 function fillArray () {
   for (i = 0; i < productArray.length; i++) {
     randomArray.push(i)
-    displayArray.push(i)
   }
 }
 
@@ -109,10 +76,6 @@ function recordVote(e) {
   var index = event.target.id
   console.log(index)
   productArray[index].productCount++
-  productArray[index].y++
-
-
-
   voteLog++
   console.log(productArray[index].percentageVoteView);
   var imagePosition = document.getElementById('image-container')
@@ -121,54 +84,6 @@ function recordVote(e) {
   console.log(productArray[index].productName + productArray[index].productCount)
 }
 
-// function for displaying results
-function showResults(myArray) {
-    var newTable = document.createElement('table')
-    // create header row, cells and content
-    var header = newTable.createTHead()
-    var rowHead = header.insertRow(0)
-    var cellHead1 = rowHead.insertCell(0)
-    var cellHead2 = rowHead.insertCell(1)
-    var cellHead3 = rowHead.insertCell(2)
-    var cellHead4 = rowHead.insertCell(3)
-    var headText1 = document.createTextNode('Product')
-    var headText2 = document.createTextNode('Votes')
-    var headText3 = document.createTextNode('Views')
-    var headText4 = document.createTextNode('Votes/Views')
-    cellHead1.appendChild(headText1)
-    cellHead2.appendChild(headText2)
-    cellHead3.appendChild(headText3)
-    cellHead4.appendChild(headText4)
-    // create row and cells for product name and votes
-    for (var i = 0; i < myArray.length; i++) {
-      var row = newTable.insertRow(0)
-      newTable.appendChild(row)
-      var cell1 = row.insertCell(0)
-      var cell2 = row.insertCell(1)
-      var cell3 = row.insertCell(2)
-      var cell4 = row.insertCell(3)
-      var cellText1 = document.createTextNode(myArray[i].productName)
-      var cellText2 = document.createTextNode(myArray[i].productCount)
-      var cellText3 = document.createTextNode(myArray[i].productView)
-      var cellText4 = document.createTextNode(myArray[i].calculatePercent() + ' %')
-      cell1.appendChild(cellText1)
-      cell2.appendChild(cellText2)
-      cell3.appendChild(cellText3)
-      cell4.appendChild(cellText4)
-    }
-    var tablePosition = document.getElementById('resultsTable')
-    var messagePosition = document.getElementById('resultsMessage')
-    var messageForResults = '<p><h3>Thank you for participating in our survey.  Here are your results.</h3></p>'
-    messagePosition.innerHTML = messageForResults
-    tablePosition.appendChild(newTable)
-}
-
-
-
-
-
-
-
 // function to sort results
 function sortResults() {
   var sortArray = productArray.slice(0)
@@ -176,6 +91,7 @@ function sortResults() {
   sortArray.sort(function(a, b){return b.productCount - a.productCount})
   return sortArray
 }
+
 
 // function to rule them all
 function pullItTogether () {
