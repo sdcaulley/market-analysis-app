@@ -1,18 +1,7 @@
-function Votes (productName, productVote) {
-  this.label = productName
-  this.y = productVote
+function GraphData (name, data) {
+  this.label = name
+  this.y = data
 }
-
-function MarketerVotes (productName, productVote) {
-  this.label = productName
-  this.y = productVote
-}
-
-function MarketerViews (productName, productView) {
-  this.label = productName
-  this.y = productView
-}
-
 function showActiveVotes (someArray) {
   var myArray = []
   for (var i = 0; i < someArray.length; i++) {
@@ -20,31 +9,29 @@ function showActiveVotes (someArray) {
         myArray.push(someArray[i])
     }
   }
-  console.log(myArray);
   return myArray
 }
 
 function fillVotesArray () {
   var someArray = []
-
   for (i = 0; i < productArray.length; i++) {
-    someArray.push(new Votes(productArray[i].productName, productArray[i].productVote))
+    someArray.push(new GraphData(productArray[i].productName, productArray[i].productVote))
   }
   return someArray
 }
 
 function fillMarketerVotesArray () {
   var someArray = []
-  for (i = 0; i < productArray.length; i++) {
-    someArray.push(new MarketerVotes(productArray[i].productName, productArray[i].productVote))
+  for (i = 0; i < marketerArray.length; i++) {
+    someArray.push(new GraphData(marketerArray[i].productName, marketerArray[i].productVote))
   }
   return someArray
 }
 
 function fillMarketerViewsArray () {
   var someArray = []
-  for (i = 0; i < productArray.length; i++) {
-    someArray.push(new MarketerViews(productArray[i].productName, productArray[i].productViews))
+  for (i = 0; i < marketerArray.length; i++) {
+    someArray.push(new GraphData(marketerArray[i].productName, marketerArray[i].productView - marketerArray[i].productVote))
   }
   return someArray
 }
