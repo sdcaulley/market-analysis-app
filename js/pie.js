@@ -3,11 +3,8 @@ var chart
 function displayPieChart () {
 	var activeVotesArray = []
   activeVotesArray = fillVotesArray()
-  console.log(activeVotesArray);
-  showActiveVotes(activeVotesArray)
-  console.log(activeVotesArray);
-  sortArray(activeVotesArray)
-  console.log(activeVotesArray);
+  activeVotesArray = showActiveVotes(activeVotesArray)
+  activeVotesArray = sortArray(activeVotesArray)
 
 	CanvasJS.addColorSet("products",
   [

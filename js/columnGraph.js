@@ -3,15 +3,11 @@ var chart
 function displayGraph () {
   var activeVotesArray = []
   activeVotesArray = fillVotesArray()
-  console.log(activeVotesArray)
 
-  showActiveVotes(activeVotesArray)
-  console.log(activeVotesArray)
+  activeVotesArray = showActiveVotes(activeVotesArray)
 
-  sortArray(activeVotesArray)
-  console.log(activeVotesArray)
+  activeVotesArray = sortArray(activeVotesArray)
 
-  sortArray
   CanvasJS.addColorSet("products",
   [
     "#000066",

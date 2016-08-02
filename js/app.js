@@ -64,6 +64,8 @@ function createImageArray () {
     voteImage.id = randomArray[i%randomArray.length]
     voteImage.alt = productArray[randomArray[i%randomArray.length]].altText
     productArray[randomArray[i%randomArray.length]].productView++
+    marketerArray[randomArray[i%randomArray.length]].productView++
+    console.log(productArray[randomArray[i%randomArray.length]].productView++);
     imageGroup.push(voteImage)
     var voteMessage = document.getElementById('place')
     var messageForUser = '<p><h3>You have completed ' + voteLog + ' out of 15 votes.</h3></p>'

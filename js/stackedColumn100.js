@@ -5,9 +5,10 @@ var marketerArray = []
 function displayStackedColumn100 () {
   var marketerVotesArray = []
   var marketerViewsArray = []
-  marketerViewsArray = fillMarketerViewsArray()
-  marketerViewsArray = fillMarketerVotesArray()
-  sortArray(marketerViewsArray)
+  var myMarketerArray = marketerArray
+  myMarketerArray = sortArray(myMarketerArray)
+  marketerViewsArray = fillMarketerViewsArray(myMarketerArray)
+  marketerVotesArray = fillMarketerVotesArray(myMarketerArray)
 
   chart = new CanvasJS.Chart("chart-container",
     {

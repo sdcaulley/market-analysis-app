@@ -13,13 +13,14 @@ function MarketerViews (productName, productView) {
   this.y = productView
 }
 
-function showActiveVotes () {
+function showActiveVotes (someArray) {
   var myArray = []
   for (var i = 0; i < someArray.length; i++) {
     if (someArray[i].y > 0) {
-        myArray.push(i)
+        myArray.push(someArray[i])
     }
   }
+  console.log(myArray);
   return myArray
 }
 
@@ -43,13 +44,13 @@ function fillMarketerVotesArray () {
 function fillMarketerViewsArray () {
   var someArray = []
   for (i = 0; i < productArray.length; i++) {
-    someArray.push(new MarketerViews(productArray[i].productName, productArray[i].productVote))
+    someArray.push(new MarketerViews(productArray[i].productName, productArray[i].productViews))
   }
   return someArray
 }
 
 // function to sort results
-function sortArray() {
+function sortArray(someArray) {
   someArray.sort(function(a, b){return b.y - a.y})
   return someArray
 }
