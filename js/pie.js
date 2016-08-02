@@ -1,7 +1,38 @@
-new CanvasJS.Chart("chartContainer",
+var chart
+
+function displayPieChart () {
+	var activeVotesArray = []
+  activeVotesArray = fillVotesArray()
+  console.log(activeVotesArray);
+  showActiveVotes(activeVotesArray)
+  console.log(activeVotesArray);
+  sortArray(activeVotesArray)
+  console.log(activeVotesArray);
+
+	CanvasJS.addColorSet("products",
+  [
+		"#000066",
+    "#ccccff",
+    "#993333",
+    "#6699ff",
+    "#003300",
+    "#ff6666",
+    "#66ff66",
+    "#ffff66",
+    "#003366",
+    "#ff66ff",
+    "#663300",
+    "#00ffff",
+    "#660066",
+    "#ffffcc"
+  ]
+);
+	chart = new CanvasJS.Chart("chart-container",
 	{
+		colorSet: "products",
+		theme: "theme2",
 		title:{
-			text: "Percentages of Views to Votes"
+			text: "Percentage of Votes"
 		},
 		legend: {
 			maxWidth: 350,
@@ -12,15 +43,7 @@ new CanvasJS.Chart("chartContainer",
 			type: "pie",
 			showInLegend: true,
 			legendText: "{indexLabel}",
-			dataPoints: [
-				{ y: 4181563, indexLabel: "PlayStation 3" },
-				{ y: 2175498, indexLabel: "Wii" },
-				{ y: 3125844, indexLabel: "Xbox 360" },
-				{ y: 1176121, indexLabel: "Nintendo DS"},
-				{ y: 1727161, indexLabel: "PSP" },
-				{ y: 4303364, indexLabel: "Nintendo 3DS"},
-				{ y: 1717786, indexLabel: "PS Vita"}
-			]
+			dataPoints: activeVotesArray
 		}
 		]
 	});
