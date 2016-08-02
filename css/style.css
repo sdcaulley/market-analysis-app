@@ -10,3 +10,15 @@ thead td {
 tr:nth-of-type(even) {
   background-color: #ccccff;
 }
+
+.buttons {
+  background-color: #ccccff;
+  border: 2px #000066;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  border-radius: 25%;
+}
+
+.buttons:hover {
+    background-color: white;
+}

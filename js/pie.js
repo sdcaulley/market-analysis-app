@@ -29,17 +29,21 @@ function displayPieChart () {
 		colorSet: "products",
 		theme: "theme2",
 		title:{
+			fontFamily: "Josefin Sans",
 			text: "Percentage of Votes"
 		},
 		legend: {
+			fontFamily: "Josefin Sans",
 			maxWidth: 350,
 			itemWidth: 120
 		},
 		data: [
 		{
 			type: "pie",
+			indexLabelFontFamily: "Josefin Sans",
 			showInLegend: true,
-			legendText: "{indexLabel}",
+			legendText: "{label}",
+			indexLabel: "#percent%",
 			dataPoints: activeVotesArray
 		}
 		]

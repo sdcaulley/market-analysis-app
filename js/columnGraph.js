@@ -31,13 +31,21 @@ function displayGraph () {
     {
       colorSet: "products",
       title: {
+        fontFamily: "Josefin Sans",
         text: "Product Votes"
       },
 
       axisX: {
+        titleFontFamily: "Josefin Sans",
+        labelFontFamily: "Josefin Sans",
         interval: 1
       },
 
+      axisY: {
+        titleFontFamily: "Josefin Sans",
+        labelFontFamily: "Josefin Sans"
+      },
+      
       data: [
       {
         type: "column",

@@ -31,7 +31,6 @@ var randomArray = []
 function fillArray () {
   for (i = 0; i < productArray.length; i++) {
     randomArray.push(i)
-    marketerArray.push(productArray[i])
   }
 }
 
@@ -90,6 +89,7 @@ function displayImage (imageGroup) {
 function firstLoad () {
   fillArray()
   shuffleRandomArray()
+  fillMarketerArray()
   displayImage(createImageArray())
 }
 
