@@ -18,6 +18,9 @@ function displayStackedColumn100 () {
   var marketerVotesArray = []
   var marketerViewsArray = []
   var myMarketerArray = marketerArray
+
+  localStorage.setItem("marketerArray", JSON.stringify(marketerArray))
+
   myMarketerArray = sortArray(myMarketerArray)
   marketerViewsArray = fillMarketerViewsArray(myMarketerArray)
   marketerVotesArray = fillMarketerVotesArray(myMarketerArray)
