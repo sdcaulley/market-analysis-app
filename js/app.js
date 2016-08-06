@@ -27,6 +27,18 @@ var productArray = [
 
 var randomArray = []
 
+function storeImages() {
+  if (localStorage.getItem("products") == null) {
+    localStorage.setItem("products", JSON.stringify(productArray))
+  } else {
+    productArray = []
+    var storedImages = JSON.parse(localStorage.getItem("products"));
+    for (var index = 0; index < storedImages.length; index++) {
+      productArray.push(new Product(storedImages[index].productName, storedImages[index].productImage, storedImages[index].altText, storedImages[index].productVote, storedImages[index].productView))
+    }
+  }
+}
+
 // functions to fill various arrays
 function fillArray () {
   for (i = 0; i < productArray.length; i++) {
@@ -87,6 +99,7 @@ function displayImage (imageGroup) {
 
 // on loading page for the first times
 function firstLoad () {
+  storeImages()
   fillArray()
   shuffleRandomArray()
   fillMarketerArray()

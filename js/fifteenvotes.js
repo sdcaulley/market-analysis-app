@@ -1,5 +1,11 @@
 // function for end of 15 votes
 function fifteenVotes () {
+  if (localStorage.getItem("storedMarketerArray") !== null) {
+    localStorage.removeItem("storedMarketerArray")
+    localStorage.setItem("storedMarketerArray", JSON.stringify(marketerArray))
+  } else {
+    localStorage.setItem("storedMarketerArray", JSON.stringify(marketerArray))
+  }
   var messagePosition = document.getElementById('resultsMessage')
   var messageForResults = '<h3>Thank you for participating in our survey.  Here are your results.</h3>'
   messagePosition.innerHTML = messageForResults

@@ -1,13 +1,10 @@
 // reset app for new user
 function newUser () {
-  // reset global counts
-  voteLog = 0
+  //reset productArray
+  storeImages()
+  //reset global counts
   count = 0
-  // reset product counts
-  for (var i = 0; i < productArray.length; i++) {
-    productArray[i].productVote = 0
-    productArray[i].productView = 0
-  }
+  voteLog = 0
   //reset display
   var newUserButtonPosition = document.getElementById('newUserButton')
   var newMarketerButtonPosition = document.getElementById("marketerButton")

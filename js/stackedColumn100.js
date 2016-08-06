@@ -9,8 +9,16 @@ function Marketer (name, vote, view) {
 var marketerArray = []
 
 function fillMarketerArray () {
-  for (var i = 0; i < productArray.length; i++) {
-    marketerArray.push(new Marketer(productArray[i].productName, productArray[i].productVote, productArray[i].productView))
+  if (localStorage.getItem("storedMarketerArray")  == null) {
+    for (var i = 0; i < productArray.length; i++) {
+      marketerArray.push(new Marketer(productArray[i].productName, productArray[i].productVote, productArray[i].productView))
+    }
+  } else {
+    marketerArray = []
+    var storedMarketerArray = JSON.parse(localStorage.getItem("storedMarketerArray"));
+    for (var index = 0; index < storedMarketerArray.length; index++) {
+      marketerArray.push(new Marketer(storedMarketerArray[index].productName, storedMarketerArray[index].productVote, storedMarketerArray[index].productView))
+    }
   }
 }
 
@@ -18,8 +26,6 @@ function displayStackedColumn100 () {
   var marketerVotesArray = []
   var marketerViewsArray = []
   var myMarketerArray = marketerArray
-
-  localStorage.setItem("marketerArray", JSON.stringify(marketerArray))
 
   myMarketerArray = sortArray(myMarketerArray)
   marketerViewsArray = fillMarketerViewsArray(myMarketerArray)
