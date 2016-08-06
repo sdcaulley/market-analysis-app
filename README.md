@@ -1,3 +1,3 @@
 # market-analysis-app
 
-Pair programming assignment #2
+Pair programming assignment #3
