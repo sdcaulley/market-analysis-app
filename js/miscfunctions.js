@@ -41,3 +41,12 @@ function sortArray(someArray) {
   someArray.sort(function(a, b){return b.y - a.y})
   return someArray
 }
+
+function moveIn() {
+  document.getElementById("image-container").setAttribute("class", "fadeIn");
+}
+
+window.addEventListener("load",function() {
+  setTimeout(moveIn, 100)
+}
+)

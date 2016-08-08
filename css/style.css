@@ -26,3 +26,20 @@ tr:nth-of-type(even) {
 .buttons:focus {
   outline: none;
 }
+
+/*img {
+  opacity: 0.6;
+}
+
+/*img:hover {
+  opacity: 1.0;
+}*/
+
+.fade {
+  opacity: 0;
+}
+
+.fadeIn {
+  opacity: 1;
+  transition: opacity 2s;
+}
