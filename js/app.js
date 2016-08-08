@@ -74,7 +74,6 @@ function createImageArray () {
     voteImage.src = productArray[randomArray[i%randomArray.length]].productImage
     voteImage.id = randomArray[i%randomArray.length]
     voteImage.alt = productArray[randomArray[i%randomArray.length]].altText
-    voteImage.class = 'fade'
     productArray[randomArray[i%randomArray.length]].productView++
     marketerArray[randomArray[i%randomArray.length]].productView++
     imageGroup.push(voteImage)
@@ -94,6 +93,7 @@ function createImageArray () {
 function displayImage (imageGroup) {
   var imagePosition = document.getElementById('image-container')
   for (var i = 0; i < imageGroup.length; i++) {
+    imageGroup[i].addEventListener('click', fadeOnClick)
     imagePosition.appendChild(imageGroup[i]).addEventListener('click', recordVote, false)
   }
 }
