@@ -74,6 +74,7 @@ function createImageArray () {
     voteImage.src = productArray[randomArray[i%randomArray.length]].productImage
     voteImage.id = randomArray[i%randomArray.length]
     voteImage.alt = productArray[randomArray[i%randomArray.length]].altText
+    voteImage.class = 'fade'
     productArray[randomArray[i%randomArray.length]].productView++
     marketerArray[randomArray[i%randomArray.length]].productView++
     imageGroup.push(voteImage)
