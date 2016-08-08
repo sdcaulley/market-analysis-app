@@ -1,40 +1,35 @@
-#image-container {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-around;
-}
-
-img {
-  height: 350px;
-  width: 350px;
-}
-
-#resultsTable {
+header {
   display: flex;
   justify-content: center;
 }
 
-td {
-   padding: 5px;
-   text-align: center;
- }
+img {
+  display: inline-flex;
+}
 
  h1 {
-   text-align: center;
+   display: inline-flex;
+   align-items: center;
  }
 
  h2 {
    text-align: center;
  }
 
- h3 {
-   text-align: center;
+ .flex-container {
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: space-around;
  }
 
- .flex-container {
+ #image-container {
    display: flex;
    flex-flow: row nowrap;
    align-items: center;
    justify-content: space-around;
+ }
+
+ #replace img {
+   height: 300px;
+   width: 300px;
  }

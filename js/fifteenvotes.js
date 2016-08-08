@@ -7,7 +7,7 @@ function fifteenVotes () {
     localStorage.setItem("storedMarketerArray", JSON.stringify(marketerArray))
   }
   var messagePosition = document.getElementById('resultsMessage')
-  var messageForResults = '<h3>Thank you for participating in our survey.  Here are your results.</h3>'
+  var messageForResults = '<h2>Thank you for participating in our survey.  Here are your results.</h2>'
   messagePosition.innerHTML = messageForResults
   var columnPosition = document.getElementById('columnButton')
   var piePosition = document.getElementById('pieButton')

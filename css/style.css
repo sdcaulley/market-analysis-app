@@ -3,12 +3,13 @@ body {
   font-size: 1em;
 }
 
-thead td {
-  font-weight: bold;
+#replace img {
+  padding: 5px;
+  background-color: purple;
 }
 
-tr:nth-of-type(even) {
-  background-color: #ccccff;
+#replace img:hover {
+  background-color: green;
 }
 
 .buttons {
@@ -33,5 +34,5 @@ tr:nth-of-type(even) {
 
 .fadeIn {
   opacity: 1;
-  transition: opacity 2s;
+  transition: opacity 1s;
 }

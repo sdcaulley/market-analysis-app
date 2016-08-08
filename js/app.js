@@ -77,9 +77,6 @@ function createImageArray () {
     productArray[randomArray[i%randomArray.length]].productView++
     marketerArray[randomArray[i%randomArray.length]].productView++
     imageGroup.push(voteImage)
-    var voteMessage = document.getElementById('place')
-    var messageForUser = '<p><h3>You have completed ' + voteLog + ' out of 15 votes.</h3></p>'
-    voteMessage.innerHTML = messageForUser
   }
   count +=3
   if (reshuffle) {
