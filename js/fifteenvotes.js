@@ -17,6 +17,8 @@ function fifteenVotes () {
   piePosition.innerHTML = pieButton
   columnPosition.addEventListener('click', displayGraph, false)
   piePosition.addEventListener('click', displayPieChart, false)
+  columnPosition.addEventListener('click', chartFade, false)
+  piePosition.addEventListener('click', chartFade, false)
   //buttons for new user and marketer
   var newUserPosition = document.getElementById('newUserButton')
   var marketerPosition = document.getElementById('marketerButton')
@@ -26,4 +28,5 @@ function fifteenVotes () {
   marketerPosition.innerHTML = marketerButton
   newUserPosition.addEventListener('click', newUser, false)
   marketerPosition.addEventListener('click', displayStackedColumn100, false)
+  marketerPosition.addEventListener('click', chartFade, false)
 }

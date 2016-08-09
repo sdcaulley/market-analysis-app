@@ -42,6 +42,7 @@ function sortArray(someArray) {
   return someArray
 }
 
+// functions to fade images
 function moveIn() {
   document.getElementById("image-container").setAttribute("class", "fadeIn")
 }
@@ -51,8 +52,17 @@ function fadeOnClick () {
   setTimeout(moveIn, 100)
 }
 
-
 window.addEventListener("load",function() {
   setTimeout(moveIn, 100)
 }
 )
+
+// functions to fade charts
+function chartFadeIn() {
+  document.getElementById("chart-container").setAttribute("class", "fadeIn")
+}
+
+function chartFade () {
+  document.getElementById('chart-container').setAttribute('class', 'fade')
+  setTimeout(chartFadeIn, 100)
+}
